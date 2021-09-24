@@ -1,1 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
+
+// $fa-font-path: "~font-awesome/fonts";
+// @import "~font-awesome/scss/font-awesome.scss";
+
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "./assets/styles/fonts";
+@import '~flexboxgrid/dist/flexboxgrid.min.css';
+@import '~prismjs/themes/prism.css';
+@import '~prismjs/plugins/toolbar/prism-toolbar.css';
+
+.hide{
+    display: none;
+}
+
+body {
+    font-family: 'AvenirMedium', 'Open Sans', helvetica, sans-serif;
+    font-size: 1em; //1em = 16px
+    font-weight: normal;
+    height: 100%;
+    color: #202124;
+}
+
+.ui-autocomplete
+{
+    position:absolute;
+    cursor:default;
+    z-index:1001 !important
+}

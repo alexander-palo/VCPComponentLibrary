@@ -1,0 +1,140 @@
+<div class="container mt-1">
+    <div class="card">
+        <div class="card-header">
+            <h1>Checkbox</h1>
+            <p>
+                <a type="button" class="btn btn-primary" href="https://www.primefaces.org/primeng/showcase/#/checkbox" target="_blank" rel="noopener noreferrer">Primeng Documentation</a>
+            </p>
+            <ul class="nav nav-tabs card-header-tabs">
+                <li class="nav-item">
+                  <a class="nav-link" [ngClass]="showSource ? '' : 'active' " (click)="showSource = false;" href="#">Example</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" [ngClass]="showSource ? 'active' : '' " (click)="showSource = true;" href="#">Source</a>
+                </li>
+              </ul>
+        </div>
+        <div class="card-body" *ngIf="!showSource">
+            <h5>Basic</h5>
+            <div class="p-field-checkbox">
+                <p-checkbox [(ngModel)]="checked" [binary]="true" inputId="binary" label="{{checked}}"></p-checkbox>
+            </div>
+            <h5>Multiple</h5>
+            <div class="p-field-checkbox">
+                <p-checkbox name="group1" value="New York" [(ngModel)]="selectedCities" inputId="ny" label="New York"></p-checkbox>
+            </div>
+            <div class="p-field-checkbox">
+                <p-checkbox name="group1" value="San Francisco" [(ngModel)]="selectedCities" inputId="sf" label="San Francisco"></p-checkbox>
+            </div>
+            <div class="p-field-checkbox">
+                <p-checkbox name="group1" value="Los Angeles" [(ngModel)]="selectedCities" inputId="la" label="Los Angeles"></p-checkbox>
+            </div>
+            <div class="p-field-checkbox">
+                <p-checkbox name="group1" value="Chicago" [(ngModel)]="selectedCities" inputId="ch" label="Chicago"></p-checkbox>
+            </div>
+            
+            <h5>Dynamic Values, Preselection, Value Binding and Disabled Option</h5>
+            <div *ngFor="let category of categories" class="p-field-checkbox">
+                <p-checkbox name="group2" value="category" [value]="category"  [(ngModel)]="selectedCategories" [inputId]="category.key" [disabled]="category.key === 'R'" label="{{category.name}}"></p-checkbox>
+            </div>
+        </div>
+        <div class="card-body" [ngClass]="showSource ? '' : 'hide'">
+            <!-- <pre data-src="~prismjs/plugins/toolbar/prism-toolbar.js" data-label="HTML"> -->
+            <figure><figcaption>HTML</figcaption>
+                <pre>
+                    <code ngNonBindable class="language-html">
+&lt;h5>Basic&lt;/h5>
+&lt;div class=&quot;p-field-checkbox&quot;>
+    &lt;p-checkbox 
+        [(ngModel)]=&quot;checked&quot; 
+        [binary]=&quot;true&quot; 
+        inputId=&quot;binary&quot; 
+        label=&quot;{{checked}}&quot;>
+    &lt;/p-checkbox>
+&lt;/div>
+
+&lt;h5>Multiple&lt;/h5>
+&lt;div class=&quot;p-field-checkbox&quot;>
+    &lt;p-checkbox 
+        name=&quot;group1&quot; 
+        value=&quot;New York&quot; 
+        [(ngModel)]=&quot;selectedCities&quot; 
+        inputId=&quot;ny&quot; 
+        label=&quot;New York&quot;>
+    &lt;/p-checkbox>
+&lt;/div>
+&lt;div class=&quot;p-field-checkbox&quot;>
+    &lt;p-checkbox 
+        name=&quot;group1&quot; 
+        value=&quot;San Francisco&quot; 
+        [(ngModel)]=&quot;selectedCities&quot; 
+        inputId=&quot;sf&quot; 
+        label=&quot;San Francisco&quot;>
+    &lt;/p-checkbox>
+&lt;/div>
+&lt;div class=&quot;p-field-checkbox&quot;>
+    &lt;p-checkbox 
+        name=&quot;group1&quot; 
+        value=&quot;Los Angeles&quot; 
+        [(ngModel)]=&quot;selectedCities&quot; 
+        inputId=&quot;la&quot; 
+        label=&quot;Los Angeles&quot;>
+    &lt;/p-checkbox>
+&lt;/div>
+&lt;div class=&quot;p-field-checkbox&quot;>
+    &lt;p-checkbox 
+        name=&quot;group1&quot; 
+        value=&quot;Chicago&quot; 
+        [(ngModel)]=&quot;selectedCities&quot; 
+        inputId=&quot;ch&quot; 
+        label=&quot;Chicago&quot;>
+    &lt;/p-checkbox>
+&lt;/div>
+
+&lt;h5>Dynamic Values, Preselection, Value Binding and Disabled Option&lt;/h5>
+&lt;div 
+    *ngFor=&quot;let category of categories&quot; 
+    class=&quot;p-field-checkbox&quot;>
+    &lt;p-checkbox 
+        name=&quot;group2&quot; 
+        value=&quot;category&quot; 
+        [value]=&quot;category&quot;  
+        [(ngModel)]=&quot;selectedCategories&quot; 
+        [inputId]=&quot;category.key&quot; 
+        [disabled]=&quot;category.key === 'R'&quot; 
+        label=&quot;{{category.name}}&quot;>
+    &lt;/p-checkbox>
+&lt;/div>
+                    </code>
+                </pre>
+            </figure>
+            <figure><figcaption>TypeScript</figcaption>
+                <pre>
+                    <code ngNonBindable class="language-ts">
+export class CheckboxComponent implements OnInit &#123;
+
+    constructor() &#123;}
+    
+    selectedCities: string[] = [];
+    
+    selectedCategories: any[] = ['Technology', 'Sports'];
+    
+    categories: any[] = [
+        &#123;name: 'Accounting', key: 'A'}, 
+        &#123;name: 'Marketing', key: 'M'}, 
+        &#123;name: 'Production', key: 'P'}, 
+        &#123;name: 'Research', key: 'R'}
+    ];
+    
+    checked: boolean = false;
+    
+    ngOnInit() &#123;
+        this.selectedCategories = this.categories.slice(1,3);
+    }
+}
+                    </code>
+                </pre>
+            </figure>
+        </div>
+    </div>
+</div>

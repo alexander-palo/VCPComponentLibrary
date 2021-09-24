@@ -1,0 +1,30 @@
+<div class="container mt-1">
+    <div class="card">
+        <div class="card-header">
+            <h1>Radio Button</h1>
+            <p>
+                <a type="button" class="btn btn-primary" href="https://www.primefaces.org/primeng/showcase/#/radiobutton" target="_blank" rel="noopener noreferrer">Primeng Documentation</a>
+            </p>
+        </div>
+        <div class="card-body">
+            <h5>Basic</h5>
+            <div class="p-field-radiobutton">
+                <p-radioButton name="city" value="Chicago" [(ngModel)]="city" inputId="city1" label="Chicago"></p-radioButton>
+            </div>
+            <div class="p-field-radiobutton">
+                <p-radioButton name="city" value="Los Angeles" [(ngModel)]="city" inputId="city2" label="Los Angeles"></p-radioButton>
+            </div>
+            <div class="p-field-radiobutton">
+                <p-radioButton name="city" value="New York" [(ngModel)]="city" inputId="city3" label="New York"></p-radioButton>
+            </div>
+            <div class="p-field-radiobutton">
+                <p-radioButton name="city" value="San Francisco" [(ngModel)]="city" inputId="city4" label="San Francisco"></p-radioButton>
+            </div>
+
+            <h5>Dynamic Values, Preselection, Value Binding and Disabled Option</h5>
+            <div *ngFor="let category of categories" class="p-field-checkbox">
+                <p-radioButton [inputId]="category.key" name="category" [value]="category" [(ngModel)]="selectedCategory" [disabled]="category.key === 'R'" label="{{category.name}}"></p-radioButton>
+            </div>
+        </div>
+    </div>
+</div>
